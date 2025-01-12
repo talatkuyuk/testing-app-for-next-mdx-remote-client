@@ -11,7 +11,7 @@ import {
 } from "@/utils/mdx";
 import type { Frontmatter } from "@/types";
 import { getSource } from "@/utils/file";
-import { getMarkdownExtension, getRandomInteger } from "@/utils";
+import { getMarkdownExtension } from "@/utils";
 import TableResult from "@/components/TableResult";
 import EvaluateComponent from "@/components/EvaluateComponent";
 import MDXRemoteComponent from "@/components/MDXRemoteComponent";

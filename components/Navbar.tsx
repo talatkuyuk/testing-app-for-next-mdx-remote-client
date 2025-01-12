@@ -10,7 +10,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setCurrent(path?.substring(1) || "main");
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getStyle = (current_: string | null) => ({
     textDecoration: current === current_ ? "underline" : "unset",

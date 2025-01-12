@@ -19,7 +19,7 @@ import ErrorComponent from "@/components/ErrorComponent";
 import TableResult from "@/components/TableResult";
 import HydrateWithComponents from "@/components/HydrateWithComponents";
 import MDXClientWithComponents from "@/components/MDXClientWithComponents";
-import { code, html } from "@/utils/rehype-handlers";
+// import { code, html } from "@/utils/rehype-handlers";
 
 type Props = {
   mdxSource?: SerializeResult<Frontmatter>;

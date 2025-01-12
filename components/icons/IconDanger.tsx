@@ -1,7 +1,7 @@
 type Props = React.SVGAttributes<SVGElement>;
 
 // it is pre-coloured svg
-const IconDanger = (props: Props): JSX.Element => {
+const IconDanger = (props: Props): React.JSX.Element => {
   return (
     <svg viewBox="0 0 12 16" {...props}>
       <path

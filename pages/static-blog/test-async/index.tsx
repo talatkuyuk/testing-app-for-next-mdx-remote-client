@@ -79,8 +79,8 @@ export default function TestPage({ mdxSource, data }: Props) {
       </TableResult>
     );
 
-  const remote_url =
-    "https://gist.githubusercontent.com/talatkuyuk/77add43c41fdfb197244ab9a43cba9d2/raw/f23d37aed3fa54f6f1ded8f654c081bbf3c07b63/Bar.mjs";
+  // const remote_url =
+  //   "https://gist.githubusercontent.com/talatkuyuk/77add43c41fdfb197244ab9a43cba9d2/raw/f23d37aed3fa54f6f1ded8f654c081bbf3c07b63/Bar.mjs";
 
   const options = {
     baseUrl: import.meta.url,

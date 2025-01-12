@@ -51,7 +51,11 @@ const ADMONITIONS: TAdmonitions = {
   },
 };
 
-const Admonition = ({ children, type = "note", title }: Props): JSX.Element => {
+const Admonition = ({
+  children,
+  type = "note",
+  title,
+}: Props): React.JSX.Element => {
   const defaultType = "note" as TAdmonition;
   const types: TAdmonition[] = ["warning", "danger", "info", "note", "tip"];
 
@@ -85,7 +89,7 @@ type CustomProps = {
 export const admonition = ({
   children,
   ...props
-}: CustomProps): JSX.Element | null => {
+}: CustomProps): React.JSX.Element | null => {
   if (!props["data-type"]) return null;
 
   const type = props["data-type"] as TAdmonition;

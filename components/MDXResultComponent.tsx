@@ -2,9 +2,7 @@ import { type SerializeResult } from "next-mdx-remote-client/csr";
 
 import TableResult from "./TableResult";
 import HydrateWithComponents from "./HydrateWithComponents";
-import HydrateWithoutComponents from "./HydrateWithoutComponents";
 import MDXClientWithComponents from "./MDXClientWithComponents";
-import MDXClientWithoutComponents from "./MDXClientWithoutComponents";
 
 import { type Frontmatter } from "@/types";
 

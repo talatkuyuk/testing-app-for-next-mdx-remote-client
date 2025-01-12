@@ -27,7 +27,7 @@ export const useDemoContext = () => {
 //   return <DemoStateContext.Consumer>{children}</DemoStateContext.Consumer>;
 // };
 
-const DemoStateProvider = ({ children }: Props): JSX.Element => {
+const DemoStateProvider = ({ children }: Props): React.JSX.Element => {
   const [counter, setCounter] = useState(10);
   const [value, setValue] = useState("demo started");
 

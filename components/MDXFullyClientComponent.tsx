@@ -59,7 +59,7 @@ const MDXFullClientComponent = ({ source, format, frontmatter }: Props) => {
     }
 
     getMdxSource();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!mdxSource)
     return (

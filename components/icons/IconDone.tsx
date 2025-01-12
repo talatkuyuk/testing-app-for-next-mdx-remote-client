@@ -1,6 +1,6 @@
 type Props = React.SVGAttributes<SVGElement>;
 
-const IconDone = (props: Props): JSX.Element => {
+const IconDone = (props: Props): React.JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

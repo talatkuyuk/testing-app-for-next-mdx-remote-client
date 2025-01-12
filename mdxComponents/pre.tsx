@@ -1,12 +1,12 @@
 "use client";
 
-import React, { ElementRef, useRef, useState } from "react";
+import React, { ComponentRef, useRef, useState } from "react";
 
 import IconContentCopy from "@/components/icons/IconContentCopy";
 import IconDone from "@/components/icons/IconDone";
 
 const pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
-  const preRef = useRef<ElementRef<"pre">>(null);
+  const preRef = useRef<ComponentRef<"pre">>(null);
   const [copied, setCopied] = useState(false);
 
   const onCopy = (): void => {

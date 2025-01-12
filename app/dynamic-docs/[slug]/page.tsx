@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { type EvaluateOptions } from "next-mdx-remote-client/rsc";
 
-import { getMarkdownFile, getMarkdownFiles, RE } from "@/utils/file";
+import { getMarkdownFile, getMarkdownFiles } from "@/utils/file";
 import {
   getRemarkRehypeOptions,
   recmaPlugins,
@@ -17,11 +17,13 @@ import MDXRemoteComponent from "@/components/MDXRemoteComponent";
 import ErrorComponent from "@/components/ErrorComponent";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { frontmatter } = (await getMarkdownFile(params.slug)) ?? {};
+  const { slug } = await params;
+
+  const { frontmatter } = (await getMarkdownFile(slug)) ?? {};
 
   return {
     title: frontmatter?.title ?? "Dynamic Doc",
@@ -43,8 +45,10 @@ export async function generateStaticParams() {
 /**
  * For demonstration purpose, the both "evaluate" and "MDXRemote" to be rendered
  */
-export default async function Post({ params }: { params: { slug: string } }) {
-  const result = await getMarkdownFile(params.slug);
+export default async function Post({ params }: Props) {
+  const { slug } = await params;
+
+  const result = await getMarkdownFile(slug);
 
   if (!result) {
     return <ErrorComponent error="The source could not found !" />;

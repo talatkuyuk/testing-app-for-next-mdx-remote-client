@@ -52,7 +52,7 @@ export default function TestPage() {
       const slug = searchParams.get("slug") as string;
 
       const url = new URL("http://localhost:3000/api/data");
-      slug && url.searchParams.append("slug", slug);
+      if (slug) url.searchParams.append("slug", slug);
 
       const response = await fetch(url);
       const data: APIResponse = await response.json();

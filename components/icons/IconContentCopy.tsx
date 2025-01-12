@@ -1,6 +1,9 @@
 type Props = React.SVGAttributes<SVGElement>;
 
-const IconContentCopy = (props: Props): JSX.Element => {
+// Global JSX is deprecated, use `React.JSX` instead of the global `JSX` namespace
+// React.JSX.Element is the same with the type ReactElement from "react"
+
+const IconContentCopy = (props: Props): React.JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

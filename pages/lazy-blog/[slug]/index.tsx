@@ -7,7 +7,7 @@ import {
 
 import type { Frontmatter } from "@/types";
 import {
-  getRemarkRehypeOptions,
+  remarkRehypeOptions,
   recmaPlugins,
   rehypePlugins,
   remarkPlugins,
@@ -100,7 +100,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
       remarkPlugins,
       rehypePlugins,
       recmaPlugins,
-      remarkRehypeOptions: getRemarkRehypeOptions(format),
+      remarkRehypeOptions: format === "md" ? remarkRehypeOptions : undefined,
     },
   };
 

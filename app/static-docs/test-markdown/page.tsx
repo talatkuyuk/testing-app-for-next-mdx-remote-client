@@ -7,7 +7,7 @@ import {
   remarkPlugins,
   rehypePlugins,
   recmaPlugins,
-  getRemarkRehypeOptions,
+  remarkRehypeOptions,
 } from "@/utils/mdx";
 import type { Frontmatter } from "@/types";
 import { getSource } from "@/utils/file";
@@ -49,7 +49,7 @@ export default async function Page() {
       remarkPlugins,
       rehypePlugins,
       recmaPlugins,
-      remarkRehypeOptions: getRemarkRehypeOptions(format),
+      remarkRehypeOptions: format === "md" ? remarkRehypeOptions : undefined,
       development: process.env.NODE_ENV === "development", // for experimental
     },
   };

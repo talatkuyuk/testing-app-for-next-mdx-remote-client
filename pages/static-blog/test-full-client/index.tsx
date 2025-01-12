@@ -9,7 +9,7 @@ import {
 } from "next-mdx-remote-client/serialize";
 
 import {
-  getRemarkRehypeOptions,
+  remarkRehypeOptions,
   recmaPlugins,
   rehypePlugins,
   remarkPlugins,
@@ -80,7 +80,8 @@ export default function TestPage() {
             remarkPlugins,
             rehypePlugins,
             recmaPlugins,
-            remarkRehypeOptions: getRemarkRehypeOptions(data.format),
+            remarkRehypeOptions:
+              data.format === "md" ? remarkRehypeOptions : undefined,
             development: process.env.NODE_ENV === "development", // for experimental
           },
         },

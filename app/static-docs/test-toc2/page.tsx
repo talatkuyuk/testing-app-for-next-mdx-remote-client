@@ -7,7 +7,7 @@ import { type TocItem } from "remark-flexible-toc";
 import {
   rehypePlugins,
   recmaPlugins,
-  getRemarkRehypeOptions,
+  remarkRehypeOptions,
   getRemarkPlugins,
 } from "@/utils/mdx";
 import type { Frontmatter } from "@/types";
@@ -57,7 +57,7 @@ export default async function Page() {
       remarkPlugins: getRemarkPlugins(toc), // the "remark-flexible-toc" plugin mutates the "toc"
       rehypePlugins,
       recmaPlugins,
-      remarkRehypeOptions: getRemarkRehypeOptions(format),
+      remarkRehypeOptions: format === "md" ? remarkRehypeOptions : undefined,
     },
   };
 

@@ -6,7 +6,7 @@ import {
 
 import { getRandomInteger } from "@/utils";
 import {
-  getRemarkRehypeOptions,
+  remarkRehypeOptions,
   recmaPlugins,
   rehypePlugins,
   remarkPlugins,
@@ -50,7 +50,8 @@ const MDXFullClientComponent = ({ source, format, frontmatter }: Props) => {
             remarkPlugins,
             rehypePlugins,
             recmaPlugins,
-            remarkRehypeOptions: getRemarkRehypeOptions(format),
+            remarkRehypeOptions:
+              format === "md" ? remarkRehypeOptions : undefined,
           },
         },
       });

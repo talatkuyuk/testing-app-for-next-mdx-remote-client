@@ -8,21 +8,22 @@ import remarkFlexibleContainers, {
   type FlexibleContainerOptions,
 } from "remark-flexible-containers";
 import remarkFlexibleParagraphs from "remark-flexible-paragraphs";
-import remarkFlexibleToc, {
-  type FlexibleTocOptions,
-  type TocItem,
-} from "remark-flexible-toc";
+import remarkFlexibleToc, { type TocItem } from "remark-flexible-toc";
+import remarkInsert from "remark-ins";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
+import rehypeHighlightCodeLines from "rehype-highlight-code-lines";
 import rehypeSlug from "rehype-slug";
+import rehypePreLanguage from "rehype-pre-language";
 import recmaMdxEscapeMissingComponents from "recma-mdx-escape-missing-components";
 import recmaMdxChangeProps from "recma-mdx-change-props";
 
 import { toTitleCase } from ".";
-import { code, html } from "./rehype-handlers";
+import { html } from "./rehype-handlers";
 
 const baseRemarkPlugins: PluggableList = [
   remarkGfm,
+  remarkInsert,
   remarkFlexibleMarkers, // order of plugins matters
   remarkEmoji,
   remarkFlexibleParagraphs,
@@ -55,15 +56,23 @@ export function getRemarkPlugins(toc: TocItem[]): PluggableList {
       remarkFlexibleToc,
       {
         tocRef: toc, // the plugin "remark-flexible-toc" mutates the "toc" via "tocRef"
-      } as FlexibleTocOptions,
+      },
     ],
   ];
 }
 
 export const rehypePlugins: PluggableList = [
-  [rehypeRaw, { passThrough: nodeTypes }], // to allow HTML elements in "md" format, "passThrough" is for "mdx" works as well
   rehypeHighlight,
+  [
+    rehypeHighlightCodeLines,
+    {
+      showLineNumbers: true,
+      lineContainerTagName: "div",
+    },
+  ],
   rehypeSlug,
+  rehypePreLanguage,
+  [rehypeRaw, { passThrough: nodeTypes }], // to allow HTML elements in "md" format, "passThrough" is for "mdx" works as well
 ];
 
 export const recmaPlugins: PluggableList = [
@@ -74,6 +83,4 @@ export const recmaPlugins: PluggableList = [
   recmaMdxChangeProps,
 ];
 
-export function getRemarkRehypeOptions(format: "md" | "mdx") {
-  return { handlers: { ...(format === "md" && { html }), code } };
-}
+export const remarkRehypeOptions = { handlers: { html } };

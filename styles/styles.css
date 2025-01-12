@@ -1,5 +1,8 @@
-html {
-  scroll-behavior: smooth;
+/* Smooth scrolling If user doesn't have a preference due to motion sensitivities */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -173,55 +176,6 @@ p.demo-context span.demo-context-counter {
   margin-right: 0.5rem;
 }
 
-pre {
-  font-size: 110%;
-  background-color: aliceblue;
-  padding: 0.5rem 1rem;
-}
-
-:not(pre) > code {
-  background-color: rgb(234, 233, 233);
-  padding-inline: 2px;
-}
-
-.remark-code-container pre {
-  margin-top: 0;
-}
-
-pre .pre-language-label {
-  position: absolute;
-  top: 0;
-  right: 10%;
-  background-color: rgb(210, 245, 140);
-  color: rgb(20, 18, 18);
-  padding: 5px 0.5rem;
-  font-size: 80%;
-  box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.1);
-}
-
-pre button.pre-copy-button {
-  padding: 0.2em;
-  color: #ccc;
-  background-color: #3976d7;
-  border-radius: 5px;
-  cursor: pointer;
-
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-
-  display: grid;
-  place-items: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  pre:hover & {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
 blockquote {
   margin: 1rem 0;
   padding: 0.1rem 2rem 0.1rem 3rem;
@@ -247,7 +201,116 @@ blockquote span {
 }
 
 .remark-code-title {
-  background-color: #367af6;
-  color: white;
+  background-color: #dbe8fd;
+  color: #555;
   padding-left: 1rem;
+
+  border: 1px solid #555;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+pre {
+  font-size: 110%;
+  background-color: #fefefe;
+  padding: 0.5rem 1rem;
+
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+:not(pre) > code {
+  background-color: rgb(234, 233, 233);
+  padding-inline: 2px;
+}
+
+.remark-code-container pre {
+  margin-top: 0;
+}
+
+.remark-code-title + pre {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+pre .pre-language-label {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  background-color: rgb(210, 245, 140);
+  color: rgb(20, 18, 18);
+  padding: 5px 0.5rem;
+  font-size: 80%;
+  box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.1);
+}
+
+pre button.pre-copy-button {
+  padding: 0.2em;
+  background-color: #dbe8fd;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  display: grid;
+  place-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pre:hover & {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* code lines */
+
+.code-line {
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: -12px;
+  margin-right: -12px;
+  border-left: 4px solid transparent; /* prepare for highlighted code-lines */
+}
+
+div.code-line:empty {
+  /* it is necessary because there is no even eol character in div code-lines */
+  height: 15.5938px; /* calculated height */
+}
+
+span.code-line {
+  min-width: 100%;
+  display: inline-block;
+}
+
+.code-line.inserted {
+  background-color: #dafbe1;
+}
+
+.code-line.deleted {
+  background-color: #ffebe9;
+}
+
+.highlighted-code-line {
+  background-color: #f0f4f9;
+  border-left: 4px solid rgb(59, 130, 246);
+}
+
+.numbered-code-line::before {
+  content: attr(data-line-number);
+
+  margin-left: -8px;
+  margin-right: 16px;
+  width: 1rem;
+  color: #888;
+  text-align: right;
+
+  display: inline-block;
 }

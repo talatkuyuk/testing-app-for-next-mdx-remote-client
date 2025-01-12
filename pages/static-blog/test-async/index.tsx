@@ -9,12 +9,7 @@ import {
   type SerializeResult,
 } from "next-mdx-remote-client/csr";
 
-import {
-  getRemarkRehypeOptions,
-  recmaPlugins,
-  rehypePlugins,
-  remarkPlugins,
-} from "@/utils/mdx";
+import { recmaPlugins, rehypePlugins, remarkPlugins } from "@/utils/mdx";
 import { mdxComponents as components } from "@/mdxComponents";
 import { getSourceFromPath } from "@/utils/file";
 import { getRandomInteger, validateExports } from "@/utils";
@@ -171,7 +166,6 @@ export async function getStaticProps() {
       remarkPlugins,
       rehypePlugins,
       recmaPlugins,
-      remarkRehypeOptions: getRemarkRehypeOptions(format),
       development: process.env.NODE_ENV === "development", // for experimental
     },
   };

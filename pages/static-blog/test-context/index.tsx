@@ -6,7 +6,7 @@ import {
 } from "next-mdx-remote-client/serialize";
 
 import {
-  getRemarkRehypeOptions,
+  remarkRehypeOptions,
   recmaPlugins,
   rehypePlugins,
   remarkPlugins,
@@ -86,7 +86,7 @@ export async function getStaticProps() {
       remarkPlugins,
       rehypePlugins,
       recmaPlugins,
-      remarkRehypeOptions: getRemarkRehypeOptions(format),
+      remarkRehypeOptions: format === "md" ? remarkRehypeOptions : undefined,
       development: process.env.NODE_ENV === "development", // for experimental
     },
   };

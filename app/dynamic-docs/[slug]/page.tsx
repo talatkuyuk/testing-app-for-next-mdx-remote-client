@@ -4,7 +4,7 @@ import { type EvaluateOptions } from "next-mdx-remote-client/rsc";
 
 import { getMarkdownFile, getMarkdownFiles } from "@/utils/file";
 import {
-  getRemarkRehypeOptions,
+  remarkRehypeOptions,
   recmaPlugins,
   rehypePlugins,
   remarkPlugins,
@@ -69,7 +69,7 @@ export default async function Post({ params }: Props) {
       remarkPlugins,
       rehypePlugins,
       recmaPlugins,
-      remarkRehypeOptions: getRemarkRehypeOptions(format),
+      remarkRehypeOptions: format === "md" ? remarkRehypeOptions : undefined,
       baseUrl: frontmatter?.disableImports ? undefined : import.meta.url,
     },
   };

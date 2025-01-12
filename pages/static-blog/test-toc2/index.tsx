@@ -8,7 +8,7 @@ import { type TocItem } from "remark-flexible-toc";
 
 import {
   getRemarkPlugins,
-  getRemarkRehypeOptions,
+  remarkRehypeOptions,
   recmaPlugins,
   rehypePlugins,
 } from "@/utils/mdx";
@@ -87,7 +87,7 @@ export async function getStaticProps() {
       remarkPlugins: getRemarkPlugins(toc), // the "remark-flexible-toc" plugin mutates the "toc"
       rehypePlugins,
       recmaPlugins,
-      remarkRehypeOptions: getRemarkRehypeOptions(format),
+      remarkRehypeOptions: format === "md" ? remarkRehypeOptions : undefined,
       development: process.env.NODE_ENV === "development", // for experimental
     },
   };

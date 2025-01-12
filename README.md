@@ -1,10 +1,10 @@
 # testing app for `next-mdx-remote-client`
 
-It is a `nextjs` application for testing of `next-mdx-remote-client`'s features.
+It is a **`nextjs`** application for testing of **`next-mdx-remote-client`**'s features.
 
 The `nextjs` is one of the React Framework for the Web.
 
-This project uses `react@19, next@15, next-mdx-remote-client@2, eslint@9` specifally.
+This project uses **`react@19, next@15, next-mdx-remote-client@2, eslint@9`** specifically.
 
 The `next-mdx-remote-client` is a package for compiling and running any MDX content for `nextjs` applications. It uses `@mdx-js/mdx` and `@mdx-js/react` in background.
 

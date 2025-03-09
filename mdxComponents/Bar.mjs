@@ -1,6 +1,4 @@
-import React from "react";
-
-const Bar = ({ status }) => {
+const Bar = ({ React, status }) => {
   return React.createElement(
     "div",
     {

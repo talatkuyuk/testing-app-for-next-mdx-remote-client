@@ -17,6 +17,7 @@ import rehypeSlug from "rehype-slug";
 import rehypePreLanguage from "rehype-pre-language";
 import recmaMdxEscapeMissingComponents from "recma-mdx-escape-missing-components";
 import recmaMdxChangeProps from "recma-mdx-change-props";
+import recmaMdxImportReact from "recma-mdx-import-react";
 
 import { toTitleCase } from ".";
 import { html } from "./rehype-handlers";
@@ -81,6 +82,7 @@ export const recmaPlugins: PluggableList = [
     ["Bar", "Toc", "ComponentFromOuterProvider"],
   ],
   recmaMdxChangeProps,
+  recmaMdxImportReact,
 ];
 
 export const remarkRehypeOptions = { handlers: { html } };

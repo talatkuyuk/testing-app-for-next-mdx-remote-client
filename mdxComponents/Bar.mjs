@@ -1,4 +1,14 @@
-const Bar = ({ React, status }) => {
+import * as ReactModule from "react";
+
+// react server component
+const Bar = ({ React = ReactModule, status }) => {
+  // for escaping pre-rendering error
+  if (!React) {
+    return "<Bar /> server component doesn't work due to missing React instance";
+  }
+
+  React.useId(); // for testing
+
   return React.createElement(
     "div",
     {

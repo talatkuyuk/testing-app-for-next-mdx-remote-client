@@ -11,6 +11,7 @@ import remarkFlexibleParagraphs from "remark-flexible-paragraphs";
 import remarkFlexibleToc, { type TocItem } from "remark-flexible-toc";
 import remarkInsert from "remark-ins";
 import rehypeRaw from "rehype-raw";
+import rehypeCodeMeta from "rehype-code-meta";
 import rehypeHighlight from "rehype-highlight";
 import rehypeHighlightCodeLines from "rehype-highlight-code-lines";
 import rehypeSlug from "rehype-slug";
@@ -51,29 +52,16 @@ export const remarkPlugins: PluggableList = [
 
 // experimental, used in only "Test Basic" pages to get the Table of Contents differently
 export function getRemarkPlugins(toc: TocItem[]): PluggableList {
-  return [
-    ...baseRemarkPlugins,
-    [
-      remarkFlexibleToc,
-      {
-        tocRef: toc, // the plugin "remark-flexible-toc" mutates the "toc" via "tocRef"
-      },
-    ],
-  ];
+  return [...baseRemarkPlugins, [remarkFlexibleToc, { tocRef: toc }]];
 }
 
 export const rehypePlugins: PluggableList = [
+  rehypeCodeMeta,
+  [rehypeRaw, { passThrough: nodeTypes }], // to allow HTML elements in "md" format, "passThrough" is for "mdx" works as well
   rehypeHighlight,
-  [
-    rehypeHighlightCodeLines,
-    {
-      showLineNumbers: true,
-      lineContainerTagName: "div",
-    },
-  ],
+  [rehypeHighlightCodeLines, { showLineNumbers: true }],
   rehypeSlug,
   rehypePreLanguage,
-  [rehypeRaw, { passThrough: nodeTypes }], // to allow HTML elements in "md" format, "passThrough" is for "mdx" works as well
 ];
 
 export const recmaPlugins: PluggableList = [

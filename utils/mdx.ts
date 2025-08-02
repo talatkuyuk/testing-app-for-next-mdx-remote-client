@@ -16,6 +16,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeHighlightCodeLines from "rehype-highlight-code-lines";
 import rehypeSlug from "rehype-slug";
 import rehypePreLanguage from "rehype-pre-language";
+import rehypeImageToolkit from "rehype-image-toolkit";
 import recmaMdxEscapeMissingComponents from "recma-mdx-escape-missing-components";
 import recmaMdxChangeProps from "recma-mdx-change-props";
 import recmaMdxImportReact from "recma-mdx-import-react";
@@ -62,6 +63,7 @@ export const rehypePlugins: PluggableList = [
   [rehypeHighlightCodeLines, { showLineNumbers: true }],
   rehypeSlug,
   rehypePreLanguage,
+  rehypeImageToolkit,
 ];
 
 export const recmaPlugins: PluggableList = [

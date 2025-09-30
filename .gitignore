@@ -5,7 +5,6 @@ certificates
 
 .DS_Store
 *.tgz
-package-lock.json
 next-env.d.ts
 
 z-todos.txt

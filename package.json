@@ -14,7 +14,7 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "next": "^15.5.4",
-    "next-mdx-remote-client": "^2.1.5",
+    "next-mdx-remote-client": "^2.1.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-spinners": "^0.17.0",

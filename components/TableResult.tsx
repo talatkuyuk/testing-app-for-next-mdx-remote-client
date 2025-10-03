@@ -1,9 +1,9 @@
-import React from "react";
+import type { ReactNode } from "react";
 
 type Props = {
   leftColumnHeader: string;
   rightColumnHeader: string;
-  children: [React.ReactNode, React.ReactNode];
+  children: [ReactNode, ReactNode];
 };
 
 const TableResult = ({

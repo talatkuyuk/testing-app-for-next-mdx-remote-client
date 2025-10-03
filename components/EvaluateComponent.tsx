@@ -36,7 +36,7 @@ const EvaluateComponent = async ({ source, format, options }: Props) => {
     components,
   });
 
-  if (error)
+  if (error) {
     return (
       <>
         <ErrorComponent error={error} />
@@ -48,7 +48,7 @@ const EvaluateComponent = async ({ source, format, options }: Props) => {
         </span>
       </>
     );
-
+  }
   /* for validating exports */
   const proofForExports = validateExports(
     format,
